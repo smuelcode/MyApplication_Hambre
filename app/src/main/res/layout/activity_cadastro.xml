@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:background="@color/colorAccent"
+    tools:context="com.example.hambre.myapplication.Cadastro">
+
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DIGITE SEU EMAIL:"
+        android:layout_marginBottom="10dp"
+        android:layout_above="@+id/editText2"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignStart="@+id/editText2" />
+
+    <EditText
+        android:id="@+id/cad_senha1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:background="@color/cardview_light_background"
+        android:layout_marginBottom="27dp"
+        android:layout_alignBottom="@+id/cad_senha"
+        android:layout_alignLeft="@+id/cad_email"
+        android:layout_alignStart="@+id/cad_email"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp" />
+
+    <TextView
+        android:id="@+id/cad_senha11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DIGITE UMA SENHA:"
+        android:layout_above="@+id/cad_senha1"
+        android:layout_alignLeft="@+id/cad_senha1"
+        android:layout_alignStart="@+id/cad_senha1"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/cad_senha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CONFIRME SUA SENHA:"
+        android:layout_above="@+id/editText"
+        android:layout_alignLeft="@+id/cad_senha1"
+        android:layout_alignStart="@+id/cad_senha1" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:id="@+id/editText"
+        android:background="@color/cardview_light_background"
+        android:layout_marginBottom="47dp"
+        android:layout_above="@+id/btn_cadastro"
+        android:layout_alignLeft="@+id/cad_senha1"
+        android:layout_alignStart="@+id/cad_senha1" />
+
+    <Button
+        android:id="@+id/btn_cadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar"
+        android:background="@color/colorAccent"
+        android:layout_marginBottom="145dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/editText"
+        android:layout_alignEnd="@+id/editText"
+        android:layout_marginRight="56dp"
+        android:layout_marginEnd="56dp" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cad_senha11"
+        android:layout_alignLeft="@+id/cad_senha11"
+        android:layout_alignStart="@+id/cad_senha11"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:background="@color/cardview_light_background"/>
+</RelativeLayout>
