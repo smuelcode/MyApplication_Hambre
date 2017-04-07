@@ -79,7 +79,8 @@
         android:layout_alignStart="@+id/email" />
 
     <Button
-        android:id="@+id/N_Cadastrar"
+        android:onClick="cadastro"
+        android:id="@+id/cadastrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Não sou cadastrado"

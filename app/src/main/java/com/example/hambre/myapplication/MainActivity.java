@@ -19,14 +19,15 @@ public class MainActivity extends AppCompatActivity {
         /* FacebookSdk.sdkInitialize(getApplicationContext());
          initializeControls();
          loginwithFB();*/
-        btncadastrar = (Button)findViewById(R.id.N_Cadastrar);
+
+        btncadastrar = (Button) findViewById(R.id.cadastrar);
 
 
         btncadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
 
-                Intent it = new Intent(getApplication(),Cadastro.class);
+                Intent it = new Intent(MainActivity.this,Cadastro.class);
                 startActivity(it);
 
             }
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 }
 
 
