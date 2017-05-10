@@ -5,12 +5,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private Button btncadastrar;
+    private Button btnlogin;
+    private EditText email, senha;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +24,34 @@ public class MainActivity extends AppCompatActivity {
          initializeControls();
          loginwithFB();*/
 
-        btncadastrar = (Button) findViewById(R.id.cadastrar);
+        btnlogin = (Button)findViewById(R.id.button);
+        btnlogin.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                email = (EditText) findViewById(R.id.email);
+                senha = (EditText) findViewById(R.id.senha);
+
+                 String Email = email.getText().toString();
+                 String Senha = senha.getText().toString();
+
+                if(Email.equals("samuel")&& Senha.equals("sasa2009")){
+
+                    alert("Login realizado com sucesso.");
+
+                    Intent intent = new Intent(MainActivity.this,Main2Usuario.class);
+                    startActivity(intent);
+                    
+                }else {
+
+                    alert("Email ou senha incorreto.");
+                }
+            }
+        });
 
 
+        btncadastrar = (Button)findViewById(R.id.cadastrar);
         btncadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,8 +59,15 @@ public class MainActivity extends AppCompatActivity {
                 Intent it = new Intent(MainActivity.this,Cadastro.class);
                 startActivity(it);
 
+
             }
         });
+
+
+    }
+    private void alert(String s){
+
+        Toast.makeText(this,s,Toast.LENGTH_LONG).show();
 
 
     }

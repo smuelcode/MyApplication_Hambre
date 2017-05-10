@@ -1,5 +1,18 @@
 <resources>
     <string name="app_name">HAMBRE</string>
+    <string name="Email">Email</string>
+    <string name="Email1">Email1 </string>
+    <string name="Senha">Senha </string>
+    <string name="Senha1">Senha1 </string>
+    <string name="Senha2">Senha2 </string>
     <string name="facebook_app_id">179103752596704</string>
+    <string name="title_activity_principal_maps">Map</string>
+    <string name="title_activity_main2_usuario"> </string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>
