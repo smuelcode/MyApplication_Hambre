@@ -5,14 +5,23 @@
     <string name="Senha">Senha </string>
     <string name="Senha1">Senha1 </string>
     <string name="Senha2">Senha2 </string>
-    <string name="facebook_app_id">179103752596704</string>
+
+    <string name="Endereço"> Ex: Nº, Rua, Bairro, Cidade, Estado </string>
+    <string name="adress"> Endereço de sua cozinha </string>
+    <string name="cozinha"> Cadastrar Cozinha </string>
+    <string name="Sair"> Sair </string>
+    <string name="Prato"> Procurar um prato. </string>
+    <string name="Chefe"> Quero ser um Chefe. </string>
+    <string name="ApplicationId">179103752596704</string>
     <string name="title_activity_principal_maps">Map</string>
     <string name="title_activity_main2_usuario"> </string>
-
+    <string name="Entrar">Entrar </string>
+    <string name="Cadastrar">Cadastrar </string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_main2">Main2Activity</string>
 
 </resources>

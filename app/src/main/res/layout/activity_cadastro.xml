@@ -4,62 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:gravity="center"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:paddingBottom="16dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    android:background="#D02090"
+
     tools:context="com.example.hambre.myapplication.Cadastro">
 
-
-    <EditText
-        android:id="@+id/senha1"
-        android:hint="Digite sua senha."
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:background="#ffff"
-        android:inputType="textPassword"
-        android:layout_marginTop="135dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/cadastro"
-        android:layout_alignStart="@+id/cadastro" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:background="#ffff"
-        android:id="@+id/senha2"
-        android:hint="Confirme sua senha."
-        android:layout_marginTop="43dp"
-        android:layout_below="@+id/senha1"
-        android:layout_alignLeft="@+id/cadastro"
-        android:layout_alignStart="@+id/cadastro" />
 
     <Button
         android:id="@+id/cadastro"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="Cadastrar"
-        android:background="#D02090"
-        android:layout_marginTop="36dp"
-        android:layout_below="@+id/senha2"
+        android:layout_marginBottom="197dp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
     <EditText
         android:id="@+id/email"
-        android:hint="Digite seu email."
-        android:background="#ffff"
+        android:hint="@string/Email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:layout_marginBottom="83dp"
-        android:layout_alignBottom="@+id/senha1"
-        android:layout_alignLeft="@+id/senha1"
-        android:layout_alignStart="@+id/senha1" />
+        android:layout_marginBottom="33dp"
+        android:layout_above="@+id/senha1"
+        android:layout_alignRight="@+id/senha1"
+        android:layout_alignEnd="@+id/senha1"
+        android:layout_alignLeft="@+id/senha2"
+        android:layout_alignStart="@+id/senha2" />
+
+    <EditText
+        android:id="@+id/senha1"
+        android:hint = "@string/Senha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="43dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:layout_above="@+id/senha2"
+        android:layout_alignRight="@+id/senha2"
+        android:layout_alignEnd="@+id/senha2"
+        android:layout_alignLeft="@+id/senha2"
+        android:layout_alignStart="@+id/senha2" />
+
+    <EditText
+        android:id="@+id/senha2"
+        android:hint="Confirma sua senha."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:layout_above="@+id/cadastro"
+        android:layout_alignRight="@+id/cadastro"
+        android:layout_alignEnd="@+id/cadastro"
+        android:layout_alignLeft="@+id/cadastro"
+        android:layout_alignStart="@+id/cadastro" />
+
 
 </RelativeLayout>

@@ -8,60 +8,62 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#D02090"
     tools:context="com.example.hambre.myapplication.MainActivity">
 
 
     <Button
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:text="Entrar"
         android:id="@+id/button"
-        android:background="#D02090"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Entrar"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/cadastrar"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Não sou cadastrado"
-        android:background="#D02090"
-        android:layout_marginTop="38dp"
+        android:text="@string/Cadastrar"
+        android:layout_marginTop="21dp"
         android:layout_below="@+id/button"
         android:layout_alignLeft="@+id/button"
         android:layout_alignStart="@+id/button" />
 
+    <com.facebook.login.widget.LoginButton
+    android:id="@+id/loginButton"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/cadastrar"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/email"
+        android:hint="@string/Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:layout_above="@+id/senha"
+        android:layout_alignLeft="@+id/senha"
+        android:layout_alignStart="@+id/senha"
+        android:layout_alignRight="@+id/senha"
+        android:layout_alignEnd="@+id/senha" />
+
     <EditText
         android:id="@+id/senha"
-        android:background="#FFFFFF"
+        android:hint="@string/Senha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/button"
         android:layout_alignLeft="@+id/button"
         android:layout_alignStart="@+id/button"
-        android:layout_marginBottom="29dp"
+        android:layout_marginBottom="25dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="@string/Senha"
         android:layout_alignRight="@+id/button"
         android:layout_alignEnd="@+id/button" />
-
-    <EditText
-        android:id="@+id/email"
-        android:background="#FFFFFF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/Email"
-        android:layout_above="@+id/senha"
-        android:layout_alignLeft="@+id/senha"
-        android:layout_alignStart="@+id/senha"
-        android:layout_marginBottom="16dp"
-        android:layout_alignRight="@+id/senha"
-        android:layout_alignEnd="@+id/senha" />
-
 
 
 </RelativeLayout>

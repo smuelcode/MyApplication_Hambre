@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.hambre.myapplication">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    package="com.example.hambre.myapplication"
+    xsi:schemaLocation="http://schemas.android.com/apk/res/android ">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
-    <!--
-         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the 'MyLocation' functionality. 
-    -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-library android:name="com.google.android.maps"/>
+
+    <uses-library android:name="com.google.android.maps" />
 
     <application
         android:allowBackup="true"
@@ -19,28 +16,16 @@
         android:label="HAMBRE"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Cadastro">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Cadastro" />
+        <activity android:name="com.facebook.FacebookActivity" />
 
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="179103752596704" />
-
+            android:value="@string/ApplicationId" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -49,24 +34,38 @@
             android:name=".Main2Usuario"
             android:label="@string/title_activity_main2_usuario"
             android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hambre.myapplication.Cadastro" />
+        </activity>
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider"
+            android:exported="true" />
+
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps" />
+        <activity
+            android:name=".Main2Activity"
+            android:label=" "
+            android:theme="@style/AppTheme" />
+        <activity android:name=".QueroserchefActivity" />
+        <activity android:name=".Anunciar_prato" />
+        <activity android:name=".PedidosActivity" />
+        <activity android:name=".Dados_recebimento" />
+        <activity android:name=".MenuChefActivity" />
+        <activity android:name=".Telainicial">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.hambre.myapplication.Cadastro" />
         </activity>
-        <activity
-            android:name=".MapsFragment"
-            android:label="@string/title_activity_maps"></activity>
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-
+        <activity android:name=".LoginChef" />
+        <activity android:name=".Cadastrochef" />
+        <activity android:name=".Prato"></activity>
     </application>
 
 </manifest>
