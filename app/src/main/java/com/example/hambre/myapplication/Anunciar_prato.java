@@ -23,11 +23,11 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-class DadosRecebimentos extends AppCompatActivity {
+class Anunciar_prato extends AppCompatActivity {
 
-    private EditText nome,num_conta,nom_banco,agencia,cpf;
-    private Button btenviar;
-    private static final String URL = "http://tellunar.com.br/enviar_dados.php";
+    private EditText Prato,Qtd_prato,inicio,fim,valor;
+    public Button btanunciar;
+    private static final String URL = "http://tellunar.com.br/anuncio_prato.php";
     private StringRequest request;
     private RequestQueue requestQueue;
     private static final String PREF_NAME = "LoginChefPreferences";
@@ -35,7 +35,7 @@ class DadosRecebimentos extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dados_recebimento);
+        setContentView(R.layout.activity_anunciar);
 
         SharedPreferences sp;
         sp = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
@@ -44,16 +44,16 @@ class DadosRecebimentos extends AppCompatActivity {
 
         requestQueue = Volley.newRequestQueue(this);
 
-        btenviar = (Button) findViewById(R.id.dados);
-        btenviar.setOnClickListener(new View.OnClickListener() {
+        btanunciar = (Button) findViewById(R.id.anunciar);
+        btanunciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                nome = (EditText) findViewById(R.id.Nom_titular);
-                num_conta = (EditText) findViewById(R.id.Num_conta);
-                nom_banco = (EditText) findViewById(R.id.Nom_banco);
-                agencia = (EditText) findViewById(R.id.agencia);
-                cpf = (EditText) findViewById(R.id.cpf);
+                Prato = (EditText) findViewById(R.id.prato);
+                Qtd_prato = (EditText) findViewById(R.id.quantidade);
+                inicio = (EditText) findViewById(R.id.horarioincial);
+                fim = (EditText) findViewById(R.id.horariofinal);
+                valor = (EditText) findViewById(R.id.Valor);
 
 
                 request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
@@ -64,8 +64,8 @@ class DadosRecebimentos extends AppCompatActivity {
 
                             JSONObject jsonObject = new JSONObject(response);
 
-                            if(nome.getText().toString().isEmpty() || num_conta.getText().toString().isEmpty() ||
-                                    nom_banco.getText().toString().isEmpty() || agencia.getText().toString().isEmpty() || cpf.getText().toString().isEmpty()){
+                            if(Prato.getText().toString().isEmpty() || Qtd_prato.getText().toString().isEmpty() ||
+                                    inicio.getText().toString().isEmpty() || fim.getText().toString().isEmpty() || valor.getText().toString().isEmpty()){
 
                                 alert("Preencha todos os campos.");
 
@@ -95,11 +95,11 @@ class DadosRecebimentos extends AppCompatActivity {
                     protected Map<String, String> getParams() throws AuthFailureError {
 
                         HashMap<String, String> hashMap = new HashMap<String, String>();
-                        hashMap.put("nome", nome.getText().toString());
-                        hashMap.put("num_conta", num_conta.getText().toString());
-                        hashMap.put("nom_banco", nom_banco.getText().toString());
-                        hashMap.put("agencia", agencia.getText().toString());
-                        hashMap.put("cpf", cpf.getText().toString());
+                        hashMap.put("prato", Prato.getText().toString());
+                        hashMap.put("quantidade", Qtd_prato.getText().toString());
+                        hashMap.put("inicio", inicio.getText().toString());
+                        hashMap.put("final", fim.getText().toString());
+                        hashMap.put("valor", valor.getText().toString());
                         hashMap.put("id", Id);
 
                         return hashMap;
@@ -118,6 +118,4 @@ class DadosRecebimentos extends AppCompatActivity {
 
         Toast.makeText(this,s,Toast.LENGTH_LONG).show();
     }
-
 }
-

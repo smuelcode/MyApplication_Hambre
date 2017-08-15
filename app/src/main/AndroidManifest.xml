@@ -30,15 +30,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".Main2Usuario"
-            android:label="@string/title_activity_main2_usuario"
-            android:theme="@style/AppTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.hambre.myapplication.Cadastro" />
-        </activity>
-
         <provider
             android:name="com.facebook.FacebookContentProvider"
             android:authorities="com.facebook.app.FacebookContentProvider"
@@ -65,7 +56,12 @@
         </activity>
         <activity android:name=".LoginChef" />
         <activity android:name=".Cadastrochef" />
-        <activity android:name=".Prato"></activity>
+        <activity android:name=".Prato" />
+        <activity android:name=".Anunciar_Prato" />
+        <activity android:name=".CadastroChef" />
+        <activity android:name=".DadosRecebimentos" />
+        <activity android:name=".Pedidos" />
+        <activity android:name=".QueroserumChef" />
     </application>
 
 </manifest>

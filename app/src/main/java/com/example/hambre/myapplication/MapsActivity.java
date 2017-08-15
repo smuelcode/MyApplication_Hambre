@@ -57,15 +57,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private final static int MY_PERMISSION_FINE_LOCATION = 101;
     public LocationManager locationmanager;
-    public double Latitude;
-    public double Lat;
-    public double Lng;
-    public double Longitude;
-    public String lat;
-    public String lng;
-    public String cozinheiro;
-    public boolean  isNetworkEnabled;
-    public boolean  isGPSEnabled;
+    public double Latitude,Lat,Lng,Longitude;
+    public String lat,lng,cozinheiro;
+    public boolean  isNetworkEnabled,isGPSEnabled;
     public Location location = new Location(GPS_PROVIDER);
     private static final String URL = "http://tellunar.com.br/busca_cozinha.php";
     public Cozinheiro chefe = new Cozinheiro();
@@ -142,7 +136,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
        /////////////////////  Pega a posição do GPS or NETWORK e marca na tela \\\\\\\\\\\\\\\\\\\\\\\\\\
 
          LatLng position = new LatLng(Latitude,Longitude);
-        mMap.addMarker(new MarkerOptions().position(position).title("Minha Posição"));
+        //mMap.addMarker(new MarkerOptions().position(position).title("Minha Posição"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position,16));
         mMap.getUiSettings().setZoomControlsEnabled(true);
 
@@ -236,19 +230,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
              //////////////////// Pega as coordenadas e marca no mapa a localização \\\\\\\\\\\\\\\\\\\
 
 
-           for (final Cozinheiro chefe : cozinheiros) {
+           for ( int j = 0; j < cozinheiros.size();j++) {
 
-               cozinheiro = chefe.getNome();
-               lat = chefe.getLatidude();
-               lng = chefe.getLongitude();
+               cozinheiro = cozinheiros.get(j).getNome();
+               lat = cozinheiros.get(j).getLatidude();
+               lng = cozinheiros.get(j).getLongitude();
 
              if (!lat.isEmpty() || !lng.isEmpty()) {
 
-                 Lat = Double.parseDouble(lat);
-                 Lng = Double.parseDouble(lng);
+                 Lat = Double.parseDouble(cozinheiros.get(j).getLatidude());
+                 Lng = Double.parseDouble(cozinheiros.get(j).getLongitude());
 
                  LatLng position = new LatLng(Lat, Lng);
                  mMap.addMarker(new MarkerOptions().position(position).title(cozinheiro));
+                 final int finalJ = j;
                  mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                      @Override
                      public boolean onMarkerClick(Marker marker) {
@@ -256,17 +251,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                          SharedPreferences sp = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
                          SharedPreferences.Editor editor = sp.edit();
 
-                         editor.putString("cozinheiro",chefe.getNome());
+                         editor.putString("cozinheiro",cozinheiros.get(finalJ).getNome());
                          editor.apply();
-                         Log.e("cozinheiro: ",chefe.getNome());
+                         Log.e("cozinheiro: ",cozinheiros.get(finalJ).getNome());
 
                          Intent intent = new Intent(MapsActivity.this,Prato.class);
                          startActivity(intent);
                          return false;
                      }
                  });
-                 Log.e("log_tagbaixo", "nome: " + chefe.getNome() + ", Lat: " + chefe.getLatidude() +
-                         " , Lng: " + chefe.getLongitude());
+
              }
 
            }
@@ -277,4 +271,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onStatusChanged(String provider, int status, Bundle extras) {}
     public void onProviderEnabled(String provider) {}
     public void onProviderDisabled(String provider) {}
+    public void onBackPressed(){
+
+        startActivity(new Intent(getApplicationContext(),Main2Activity.class));
+
+
+
+    }
 }

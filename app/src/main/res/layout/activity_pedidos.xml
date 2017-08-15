@@ -1,9 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hambre.myapplication.Pedidos">
+    tools:context="com.example.hambre.myapplication.PedidosActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/Nome"
+        android:layout_width="109dp"
+        android:layout_height="20dp"
+        android:text="Nome do cliente:"
+        tools:layout_editor_absoluteY="58dp"
+        tools:layout_editor_absoluteX="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="82dp" />
+
+    <TextView
+        android:id="@+id/Nomes"
+        android:layout_width="132dp"
+        android:layout_height="21dp"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="88dp"
+        android:layout_marginRight="19dp"
+        android:layout_marginEnd="19dp"
+        android:layout_below="@+id/Nome"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/num_de_pratos"
+        android:layout_width="145dp"
+        android:layout_height="20dp"
+        android:text="Numeros de pratos:"
+        tools:layout_editor_absoluteX="215dp"
+        tools:layout_editor_absoluteY="58dp"
+        android:layout_above="@+id/Nomes"
+        android:layout_alignLeft="@+id/Nomes"
+        android:layout_alignStart="@+id/Nomes" />
+
+    <TextView
+        android:id="@+id/pratos"
+        android:layout_width="126dp"
+        android:layout_height="21dp"
+        tools:layout_editor_absoluteY="88dp"
+        tools:layout_editor_absoluteX="234dp"
+        android:layout_below="@+id/Nome"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

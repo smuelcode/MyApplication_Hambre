@@ -1,9 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.hambre.myapplication.MenuChefActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/Anun_prato"
+        android:layout_width="289dp"
+        android:layout_height="44dp"
+        android:text="Anunciar um prato"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="225dp"
+        android:layout_marginTop="46dp"
+        android:layout_below="@+id/inicio"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/pedidos"
+        android:layout_width="290dp"
+        android:layout_height="47dp"
+        android:text="Seus Pedidos"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="282dp"
+        android:layout_marginTop="36dp"
+        android:layout_below="@+id/dados_recebimento"
+        android:layout_alignLeft="@+id/Anun_prato"
+        android:layout_alignStart="@+id/Anun_prato" />
+
+    <Button
+        android:id="@+id/dados_recebimento"
+        android:layout_width="295dp"
+        android:layout_height="46dp"
+        android:text="Dados para recebimento"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="338dp"
+        android:layout_below="@+id/cd_cozinha"
+        android:layout_alignLeft="@+id/cd_cozinha"
+        android:layout_alignStart="@+id/cd_cozinha"
+        android:layout_marginTop="26dp" />
+
+    <Button
+        android:id="@+id/inicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="57dp"
+        android:text="@string/Sair"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="410dp" />
+
+    <Button
+        android:id="@+id/cd_cozinha"
+        android:layout_width="288dp"
+        android:layout_height="51dp"
+        android:text="Cadastrar cozinha"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="160dp"
+        android:layout_below="@+id/Anun_prato"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp" />
+</RelativeLayout>

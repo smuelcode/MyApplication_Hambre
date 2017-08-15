@@ -1,9 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.hambre.myapplication.LoginChef">
 
-</android.support.constraint.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/emailchef"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="136dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/Email" />
+
+    <EditText
+        android:id="@+id/senhachef"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/emailchef"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="@string/Senha"/>
+
+    <Button
+        android:id="@+id/btentrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/senhachef"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp"
+        android:text="Entrar" />
+
+    <Button
+        android:id="@+id/btcdchef"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Não sou um chef ainda"
+        android:layout_below="@+id/btentrar"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
