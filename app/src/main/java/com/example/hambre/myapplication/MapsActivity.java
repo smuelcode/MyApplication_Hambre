@@ -6,30 +6,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Criteria;
-import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -40,16 +26,13 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static android.location.LocationManager.GPS_PROVIDER;
 import static android.location.LocationManager.NETWORK_PROVIDER;
-import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,LocationListener {
 
@@ -57,13 +40,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private final static int MY_PERMISSION_FINE_LOCATION = 101;
     public LocationManager locationmanager;
-    public double Latitude,Lat,Lng,Longitude;
-    public String lat,lng,cozinheiro;
+    public double Latitude,Longitude;
+    public String lat,lng;
     public boolean  isNetworkEnabled,isGPSEnabled;
     public Location location = new Location(GPS_PROVIDER);
     private static final String URL = "http://tellunar.com.br/busca_cozinha.php";
     public Cozinheiro chefe = new Cozinheiro();
-    public List<Cozinheiro> cozinheiros = new ArrayList<Cozinheiro>();
+    public HashMap<LatLng, Cozinheiro> cozinheiros = new HashMap<>();
+    public List<Cozinheiro> cozinheiro = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -214,7 +198,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     chefe.setNome(json.getJSONObject(i).get("cozinheiro").toString());
                     chefe.setLatidude(json.getJSONObject(i).get("latitude").toString());
                     chefe.setLongitude(json.getJSONObject(i).get("longitude").toString());
-                    cozinheiros.add(chefe);
+                    cozinheiro.add(chefe);
+
+                    lat = chefe.getLatidude();
+                    lng = chefe.getLongitude();
+
+                   double Lat = Double.parseDouble(lat);
+                   double Lng = Double.parseDouble(lng);
+
+                    LatLng p = new LatLng(Lat, Lng);
+                    cozinheiros.put(p,chefe);
 
               }
 
@@ -230,20 +223,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
              //////////////////// Pega as coordenadas e marca no mapa a localização \\\\\\\\\\\\\\\\\\\
 
 
-           for ( int j = 0; j < cozinheiros.size();j++) {
+           for ( int j = 0; j < cozinheiro.size();j++) {
 
-               cozinheiro = cozinheiros.get(j).getNome();
-               lat = cozinheiros.get(j).getLatidude();
-               lng = cozinheiros.get(j).getLongitude();
+              // cozinheiro = cozinheiros.get(j).getNome();
+               lat = cozinheiro.get(j).getLatidude();
+               lng = cozinheiro.get(j).getLongitude();
 
              if (!lat.isEmpty() || !lng.isEmpty()) {
 
-                 Lat = Double.parseDouble(cozinheiros.get(j).getLatidude());
-                 Lng = Double.parseDouble(cozinheiros.get(j).getLongitude());
+                double Lat = Double.parseDouble(cozinheiro.get(j).getLatidude());
+                double Lng = Double.parseDouble(cozinheiro.get(j).getLongitude());
 
                  LatLng position = new LatLng(Lat, Lng);
-                 mMap.addMarker(new MarkerOptions().position(position).title(cozinheiro));
-                 final int finalJ = j;
+                 mMap.addMarker(new MarkerOptions().position(position).title(cozinheiro.get(j).getNome()));
+
                  mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                      @Override
                      public boolean onMarkerClick(Marker marker) {
@@ -251,9 +244,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                          SharedPreferences sp = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
                          SharedPreferences.Editor editor = sp.edit();
 
-                         editor.putString("cozinheiro",cozinheiros.get(finalJ).getNome());
+                         Cozinheiro cozinheiro = cozinheiros.get(marker.getPosition());
+                         editor.putString("cozinheiro", cozinheiro.getNome());
                          editor.apply();
-                         Log.e("cozinheiro: ",cozinheiros.get(finalJ).getNome());
+                        
 
                          Intent intent = new Intent(MapsActivity.this,Prato.class);
                          startActivity(intent);

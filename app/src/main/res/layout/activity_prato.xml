@@ -4,151 +4,176 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context="com.example.hambre.myapplication.Prato">
 
     <TextView
         android:id="@+id/nom_chef"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:text="Nome do Chef: "
-        android:textSize="15dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginTop="52dp"
+        android:text="Nome do Cozinheiro: "
+        android:textSize="20dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp" />
 
     <TextView
         android:id="@+id/nome"
-        android:layout_width="match_parent"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
-        android:layout_below="@+id/nom_chef"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
-        android:layout_alignLeft="@+id/nom_chef"
-        android:layout_alignStart="@+id/nom_chef" />
+        android:textSize="20dp"
+        android:layout_alignBaseline="@+id/nom_chef"
+        android:layout_alignBottom="@+id/nom_chef"
+        android:layout_toRightOf="@+id/nom_chef"
+        android:layout_toEndOf="@+id/nom_chef"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp" />
 
     <TextView
         android:id="@+id/pt_dia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Prato oferecido :"
-        android:textSize="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/nome"
-        android:layout_alignLeft="@+id/nome"
-        android:layout_alignStart="@+id/nome" />
+        android:textSize="20dp"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/nom_chef"
+        android:layout_alignLeft="@+id/nom_chef"
+        android:layout_alignStart="@+id/nom_chef" />
 
     <TextView
         android:id="@+id/saida_prato"
-        android:layout_width="match_parent"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
-        android:layout_below="@+id/pt_dia"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
-        android:layout_alignLeft="@+id/inicio_p"
-        android:layout_alignStart="@+id/inicio_p" />
+        android:textSize="20dp"
+        android:layout_alignBaseline="@+id/pt_dia"
+        android:layout_alignBottom="@+id/pt_dia"
+        android:layout_toRightOf="@+id/pt_dia"
+        android:layout_toEndOf="@+id/pt_dia"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp" />
 
     <TextView
         android:id="@+id/num_por"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Números de porções oferecidas:"
-        android:textSize="15dp"
-        android:layout_below="@+id/saida_prato"
+        android:textSize="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/pt_dia"
         android:layout_alignLeft="@+id/pt_dia"
-        android:layout_alignStart="@+id/pt_dia"
-        android:layout_marginTop="10dp" />
+        android:layout_alignStart="@+id/pt_dia" />
 
     <TextView
         android:id="@+id/saida_numero"
-        android:layout_width="match_parent"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/num_por"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/num_por"
-        android:layout_alignStart="@+id/num_por" />
+        android:textSize="20dp"
+        android:layout_alignBaseline="@+id/num_por"
+        android:layout_alignBottom="@+id/num_por"
+        android:layout_toEndOf="@+id/saida_prato"
+        android:layout_toRightOf="@+id/saida_prato" />
 
     <TextView
         android:id="@+id/inicio_p"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Horário de inicio:"
-        android:textSize="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/saida_numero"
-        android:layout_alignRight="@+id/pt_dia"
-        android:layout_alignEnd="@+id/pt_dia" />
+        android:textSize="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/num_por"
+        android:layout_alignLeft="@+id/fim_p"
+        android:layout_alignStart="@+id/fim_p" />
 
     <TextView
         android:id="@+id/saida_in"
-        android:layout_width="match_parent"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/inicio_p"
-        android:layout_alignStart="@+id/inicio_p" />
+        android:textSize="20dp"
+        android:layout_alignBaseline="@+id/inicio_p"
+        android:layout_alignBottom="@+id/inicio_p"
+        android:layout_alignRight="@+id/num_por"
+        android:layout_alignEnd="@+id/num_por" />
 
     <TextView
         android:id="@+id/fim_p"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
         android:text="Horário final:"
-        android:textSize="15dp"
-        android:layout_below="@+id/saida_in"
-        android:layout_alignLeft="@+id/saida_in"
-        android:layout_alignStart="@+id/saida_in" />
+        android:textSize="20dp"
+        android:layout_below="@+id/inicio_p"
+        android:layout_alignLeft="@+id/num_por"
+        android:layout_alignStart="@+id/num_por"
+        android:layout_marginTop="18dp" />
 
     <TextView
         android:id="@+id/saida_fim"
-        android:layout_width="match_parent"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/saida_in"
-        android:layout_alignStart="@+id/saida_in"
-        android:layout_below="@+id/fim_p"
-        android:layout_marginTop="15dp"
-        android:text="" />
+        android:textSize="20dp"
+        android:layout_above="@+id/valor_p"
+        android:layout_toRightOf="@+id/fim_p"
+        android:layout_toEndOf="@+id/fim_p"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp" />
 
     <TextView
         android:id="@+id/valor_p"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:text="Valor de cada porção:"
-        android:textSize="15dp"
-        android:layout_below="@+id/saida_fim"
-        android:layout_alignLeft="@+id/saida_fim"
-        android:layout_alignStart="@+id/saida_fim" />
+        android:layout_marginTop="16dp"
+        android:text="Valor de cada porção: R$"
+        android:textSize="20dp"
+        android:layout_below="@+id/fim_p"
+        android:layout_alignLeft="@+id/fim_p"
+        android:layout_alignStart="@+id/fim_p" />
 
     <TextView
         android:id="@+id/saida_valor"
-        android:layout_width="match_parent"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
-        android:textSize="15dp"
-        android:layout_below="@+id/valor_p"
-        android:layout_alignLeft="@+id/valor_p"
-        android:layout_alignStart="@+id/valor_p" />
+        android:textSize="20dp"
+        android:layout_alignBaseline="@+id/valor_p"
+        android:layout_alignBottom="@+id/valor_p"
+        android:layout_toRightOf="@+id/valor_p"
+        android:layout_toEndOf="@+id/valor_p" />
 
     <Button
         android:id="@+id/fazer_pedido"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="realizar pedido"
-        android:layout_marginTop="22dp"
-        android:layout_below="@+id/saida_valor"
+        android:layout_marginBottom="28dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="#FFFFFF"/>
+
+    <EditText
+        android:id="@+id/num_porcoes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Números de porções desejada"
+        android:textAlignment="center"
+        android:layout_above="@+id/fazer_pedido"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="25dp" />
+
+    <Button
+        android:id="@+id/descrição"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text=" Descrição do prato"
+        android:textAlignment="textStart"
+        android:background="#FFFFFF"
+        android:layout_below="@+id/valor_p"
+        android:layout_alignRight="@+id/saida_fim"
+        android:layout_alignEnd="@+id/saida_fim"
+        android:layout_marginTop="14dp" />
 
 </RelativeLayout>

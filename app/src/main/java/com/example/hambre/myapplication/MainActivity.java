@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     private RequestQueue requestQueue;
     private static final String url = "http://tellunar.com.br/use_control2.php";
     private StringRequest request;
-    public  String ID;
+    public  String Nome;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,10 +138,10 @@ public class MainActivity extends AppCompatActivity {
 
                                  SharedPreferences sp = getSharedPreferences(PREF_NAME,Context.MODE_PRIVATE);
                                  SharedPreferences.Editor editor = sp.edit();
-                                 ID = jsonObject.getString("id");
-                                 Log.e("Id",ID);
+                                 Nome = jsonObject.getString("Email");
+                                 Log.e("Id",Nome);
 
-                                 editor.putString("ID",ID);
+                                 editor.putString("Nome",Nome);
                                  editor.putString("login","logged");
                                  editor.apply();
 

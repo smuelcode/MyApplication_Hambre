@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -29,7 +30,9 @@ public class Prato extends AppCompatActivity {
     private static final String PREF_NAME = "MainActivityPreferences";
     private static final String URL = "http://tellunar.com.br/busca_prato.php";
     private TextView nom_coz,nom_prato,num_por,valor,inicio,fim;
-    private String cozinheiro,nom_c,nom_p,num_p,valor_p,ini,fin;
+    private Button pedido;
+    private EditText porcoes;
+    private String cozinheiro,nom_c,nom_p,num_p,valor_p,ini,fin,quantidade;
     private RequestQueue requestQueue;
     private StringRequest request;
 
@@ -51,6 +54,7 @@ public class Prato extends AppCompatActivity {
         valor = (TextView)findViewById(R.id.saida_valor);
         inicio = (TextView)findViewById(R.id.saida_in);
         fim = (TextView)findViewById(R.id.saida_fim);
+        porcoes = (EditText)findViewById(R.id.num_porcoes);
 
         request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
@@ -66,6 +70,11 @@ public class Prato extends AppCompatActivity {
                     valor_p = jsonObject.getString("Valor_prato");
                     ini = jsonObject.getString("Inicio");
                     fin = jsonObject.getString("Termino");
+
+                    SharedPreferences sp = getSharedPreferences(PREF_NAME,Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("Valor",valor_p);
+                    editor.apply();
 
                     nom_coz.setText(nom_c);
                     nom_prato.setText(nom_p);
@@ -97,6 +106,24 @@ public class Prato extends AppCompatActivity {
         };
 
         requestQueue.add(request);
+
+        pedido = (Button) findViewById(R.id.fazer_pedido);
+        pedido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                quantidade = porcoes.getText().toString();
+
+                SharedPreferences sp = getSharedPreferences(PREF_NAME,Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString("Porçao",quantidade);
+                editor.apply();
+
+
+                Intent it = new Intent(Prato.this,Realizar_Pedido.class);
+                startActivity(it);
+            }
+        });
     }
     public void onBackPressed(){
 

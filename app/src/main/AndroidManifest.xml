@@ -62,6 +62,7 @@
         <activity android:name=".DadosRecebimentos" />
         <activity android:name=".Pedidos" />
         <activity android:name=".QueroserumChef" />
+        <activity android:name=".Realizar_Pedido"></activity>
     </application>
 
 </manifest>
